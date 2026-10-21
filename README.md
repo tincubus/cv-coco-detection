@@ -1,28 +1,28 @@
-# 🎯 Computer Vision Object Detection กับ COCO Dataset (ฉบับมือใหม่)
+# Computer Vision Object Detection กับ COCO Dataset (ฉบับมือใหม่)
 
 โปรเจกต์เรียนรู้ **Computer Vision: Object Detection** ด้วยชุดข้อมูลมาตรฐานโลก **COCO (Common Objects in Context)** และโมเดล **YOLO (You Only Look Once)**
 
 ---
 
-## 🏛️ โครงสร้างไดเรกทอรีมาตรฐาน (Directory Structure)
+## โครงสร้างไดเรกทอรีมาตรฐาน (Directory Structure)
 
 ทุกไฟล์ถูกจัดระเบียบตามโครงสร้างระบบอย่างเป็นสัดส่วน ดังนี้:
 
 ```text
 /workspace/
 ├── artifacts/
-│   ├── pretrained/                 # 📦 ที่เก็บโมเดลเริ่มต้น (Pretrained Weights เช่น yolo11n.pt)
-│   ├── runs/                       # 🏋️ ผลลัพธ์จากการเทรนและ validation (best.pt, charts, loss)
-│   └── predictions/                # 📸 ผลลัพธ์ภาพที่ผ่านการตรวจจับและตีกรอบ (Inference Detections)
+│   ├── pretrained/                 # ที่เก็บโมเดลเริ่มต้น (Pretrained Weights เช่น yolo11n.pt)
+│   ├── runs/                       # ผลลัพธ์จากการเทรนและ validation (best.pt, charts, loss)
+│   └── predictions/                # ผลลัพธ์ภาพที่ผ่านการตรวจจับและตีกรอบ (Inference Detections)
 │
-├── data/                           # 📂 ที่เก็บชุดข้อมูล (Datasets)
+├── data/                           # ที่เก็บชุดข้อมูล (Datasets)
 │   ├── coco128/                    # ชุดข้อมูลทดลอง 128 ภาพ ครบ 80 คลาส
 │   ├── coco8/                      # ชุดข้อมูลขนาดจิ๋ว 8 ภาพ
 │   └── coco/                       # ชุดข้อมูลเต็ม 2017 (~20GB+) เมื่อดาวน์โหลด
 │
-└── cv-coco-detection/              # 💻 โค้ดและภาพตัวอย่างสำหรับเรียนรู้
-    ├── bus.jpg                     # 🖼️ ภาพตัวอย่างสำหรับทดสอบ Quickstart
-    ├── zidane.jpg                  # 🖼️ ภาพตัวอย่างสำหรับทดสอบ Evaluation
+└── cv-coco-detection/              # โค้ดและภาพตัวอย่างสำหรับเรียนรู้
+    ├── bus.jpg                     # ภาพตัวอย่างสำหรับทดสอบ Quickstart
+    ├── zidane.jpg                  # ภาพตัวอย่างสำหรับทดสอบ Evaluation
     ├── 01_quickstart_inference.py  # ทดสอบรัน Detection ทันทีด้วย Pretrained Model
     ├── 02_explore_coco_data.py     # สำรวจ 80 คลาส และโครงสร้าง Label Bounding Box
     ├── 03_train_coco.py            # ฝึกสอนโมเดล (Fine-Tuning) บน GPU
@@ -34,14 +34,14 @@
 
 ---
 
-## 📌 COCO Dataset คืออะไร? (อธิบายแบบมือใหม่)
+## COCO Dataset คืออะไร? (อธิบายแบบมือใหม่)
 
 * **COCO (Common Objects in Context)** เป็นชุดข้อมูลมาตรฐานโลก มี 80 คลาส เช่น คน (`person`), รถ (`car`), แมว (`cat`), จอทีวี (`tv`), โน้ตบุ๊ก (`laptop`)
 * **จุดเริ่มต้นสำหรับผู้เริ่มต้น**: แนะนำให้เริ่มฝึกด้วย **COCO128** ในโฟลเดอร์ `/workspace/data/coco128` ซึ่งมีรูปภาพตัวอย่าง 128 ภาพ ครบทั้ง 80 คลาส โหลดและเทรนได้รวดเร็ว ช่วยให้เข้าใจ pipeline ได้ทันทีโดยไม่ต้องรอโหลด 20GB
 
 ---
 
-## 🚀 ลำดับขั้นตอนการเรียนรู้ (Step-by-Step Tutorial)
+## ลำดับขั้นตอนการเรียนรู้ (Step-by-Step Tutorial)
 
 ### ขั้นที่ 1: ตรวจจับวัตถุได้ทันทีไม่ต้องรอเทรน (Pre-trained Inference)
 รันคำสั่ง:
@@ -88,5 +88,5 @@ python3 04_evaluate_and_predict.py
 
 ---
 
-## 📓 ใช้งานผ่าน Interactive Notebook
+## ใช้งานผ่าน Interactive Notebook
 คุณสามารถเปิดไฟล์ [`tutorial_coco_detection.ipynb`](file:///workspace/cv-coco-detection/tutorial_coco_detection.ipynb) ใน VS Code เพื่อรันและเรียนรู้ทีละขั้นตอนได้อย่างสะดวกสบาย!

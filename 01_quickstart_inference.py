@@ -20,8 +20,8 @@ MODEL_PATH = os.path.join(PRETRAINED_DIR, "yolo11n.pt")
 
 def main():
     print("=" * 60)
-    print("🚀 โหลดโมเดล YOLO11 ที่ผ่านการเทรนบนชุดข้อมูล COCO (80 Classes)")
-    print(f"📁 Pretrained Model Path: {MODEL_PATH}")
+    print("โหลดโมเดล YOLO11 ที่ผ่านการเทรนบนชุดข้อมูล COCO (80 Classes)")
+    print(f"Pretrained Model Path: {MODEL_PATH}")
     print("=" * 60)
 
     # หากยังไม่มีไฟล์โมเดลในโฟลเดอร์ pretrained จะดาวน์โหลดและเก็บไว้ที่นี่
@@ -36,7 +36,7 @@ def main():
 
     # กำหนดภาพทดสอบ (ใช้ภาพ sample bus.jpg ในโฟลเดอร์โปรเจกต์)
     sample_image = "bus.jpg" if os.path.exists("bus.jpg") else "https://ultralytics.com/images/bus.jpg"
-    print(f"\n📸 กำลังทำการตรวจจับวัตถุบนภาพ: {sample_image}")
+    print(f"\nกำลังทำการตรวจจับวัตถุบนภาพ: {sample_image}")
 
     # รัน Object Detection
     # บันทึกภาพพร้อมกรอบลงใน /workspace/artifacts/predictions/quickstart_demo
@@ -52,7 +52,7 @@ def main():
     result = results[0]
 
     print("\n" + "=" * 60)
-    print("🎯 สรุปผลการตรวจจับวัตถุ (Detections):")
+    print("สรุปผลการตรวจจับวัตถุ (Detections):")
     print("=" * 60)
 
     # วนลูปอ่านกล่อง Bounding Box แต่ละกล่องที่โมเดลตรวจพบ
@@ -65,7 +65,7 @@ def main():
         print(f"[{idx}] เจอวัตถุ: '{class_name}' (ID: {class_id}) | ความมั่นใจ: {confidence:.1f}% | พิกัดกล่อง: {coords}")
 
     saved_path = os.path.join(PREDICTIONS_DIR, "quickstart_demo")
-    print(f"\n💾 บันทึกรูปภาพผลลัพธ์ไว้ที่: {saved_path}")
+    print(f"\nบันทึกรูปภาพผลลัพธ์ไว้ที่: {saved_path}")
 
 if __name__ == "__main__":
     main()

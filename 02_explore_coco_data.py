@@ -13,7 +13,7 @@ DATA_DIR = "/workspace/data"
 
 def main():
     print("=" * 70)
-    print("📂 กำลังตรวจสอบและเตรียมชุดข้อมูล COCO128 ใน /workspace/data ...")
+    print("กำลังตรวจสอบและเตรียมชุดข้อมูล COCO128 ใน /workspace/data ...")
     print("=" * 70)
 
     # Ultralytics จะดาวน์โหลดและเก็บ dataset ลงใน datasets_dir (/workspace/data)
@@ -22,11 +22,11 @@ def main():
     dataset_path = data_dict["path"]
     classes = data_dict["names"]
 
-    print(f"\n✅ ตำแหน่งที่เก็บชุดข้อมูล: {dataset_path}")
-    print(f"📊 จำนวนคลาสทั้งหมด: {len(classes)} คลาส")
+    print(f"\nตำแหน่งที่เก็บชุดข้อมูล: {dataset_path}")
+    print(f"จำนวนคลาสทั้งหมด: {len(classes)} คลาส")
 
     print("\n" + "=" * 70)
-    print("📋 รายชื่อ 80 Classes ใน COCO Dataset:")
+    print("รายชื่อ 80 Classes ใน COCO Dataset:")
     print("=" * 70)
     class_names = [f"[{k}] {v}" for k, v in classes.items()]
     col_width = 20
@@ -35,7 +35,7 @@ def main():
         print("".join(c.ljust(col_width) for c in row))
 
     print("\n" + "=" * 70)
-    print("🔍 โครงสร้างไฟล์ Label สำหรับ Object Detection (YOLO format)")
+    print("โครงสร้างไฟล์ Label สำหรับ Object Detection (YOLO format)")
     print("=" * 70)
     
     labels_dir = os.path.join(dataset_path, "labels", "train2017")
@@ -55,13 +55,13 @@ def main():
             cls_id = int(parts[0])
             cls_name = classes[cls_id]
             x_c, y_c, w, h = [float(p) for p in parts[1:]]
-            print(f"  • Class {cls_id} ('{cls_name}') => จุดกึ่งกลาง: ({x_c:.3f}, {y_c:.3f}), กว้าง: {w:.3f}, สูง: {h:.3f}")
+            print(f"  - Class {cls_id} ('{cls_name}') => จุดกึ่งกลาง: ({x_c:.3f}, {y_c:.3f}), กว้าง: {w:.3f}, สูง: {h:.3f}")
 
-        print("\n💡 คำอธิบาย Bounding Box Format:")
+        print("\nคำอธิบาย Bounding Box Format:")
         print("  1. พิกัดทั้งหมดถูก Normalize ให้อยู่ในช่วง 0.0 ถึง 1.0 (เทียบกับความกว้าง-ยาวของรูปภาพ)")
         print("  2. แต่ละบรรทัดคือ: <class_id> <center_x> <center_y> <width> <height>")
 
-    print("\n🎉 ชุดข้อมูลพร้อมใช้งานใน /workspace/data เรียบร้อย!")
+    print("\nชุดข้อมูลพร้อมใช้งานใน /workspace/data เรียบร้อย")
 
 if __name__ == "__main__":
     main()
