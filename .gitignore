@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# PyTorch / Weights
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Ultralytics & Training outputs
+runs/
+outputs/
+*.log
+
+# Datasets
+datasets/
+data/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

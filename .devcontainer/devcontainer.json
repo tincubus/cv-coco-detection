@@ -1,0 +1,47 @@
+{
+  "name": "COCO Detection - DGX Spark",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "${localEnv:USER}",
+      "USER_UID": "1000",
+      "USER_GID": "1000"
+    }
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/cv-coco-detection,type=bind",
+  "workspaceFolder": "/workspace/cv-coco-detection",
+  "remoteUser": "${localEnv:USER}",
+  "updateRemoteUserUID": false,
+  "init": true,
+  "overrideCommand": true,
+  "shutdownAction": "stopContainer",
+  "runArgs": [
+    "--gpus=all",
+    "--shm-size=2g",
+    "--restart=unless-stopped"
+  ],
+  "mounts": [
+    "source=${localEnv:HOME}/Workspace/ai-data/cv-coco-detection,target=/workspace/data,type=bind",
+    "source=${localEnv:HOME}/Workspace/ai-artifacts/cv-coco-detection,target=/workspace/artifacts,type=bind",
+    "source=tincubus-cv-coco-home,target=/home/${localEnv:USER},type=volume"
+  ],
+  "containerEnv": {
+    "DATA_ROOT": "/workspace/data",
+    "ARTIFACTS_ROOT": "/workspace/artifacts"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "openai.chatgpt"
+      ],
+      "settings": {
+        "remote.autoForwardPorts": false,
+        "remote.restoreForwardedPorts": false
+      }
+    }
+  },
+  "postCreateCommand": "python -m ipykernel install --user --name cv-coco --display-name 'PyTorch - COCO / DGX Spark'"
+}
